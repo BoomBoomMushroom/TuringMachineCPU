@@ -19,26 +19,26 @@ Let's try to utilize 100 cells or less (thats how many cell I plan on having on 
 How many states should/will I use ¯\_(ツ)_/¯
 
 # Instruction set:
-LDV - A Register is loaded with the Value operand
-LDA - A Register is loaded with the value from the address operand
-STR - Writes the value of a register to the address at the Address operand
+LDV - 0000 - A Register is loaded with the Value operand
+LDA - 0001 - A Register is loaded with the value from the address operand
+STR - 0010 - Writes the value of a register to the address at the Address operand
 
-ADD - The Accumulator register is set to the value of X plus Y; ACC = X; ACC = ACC + Y
-SUB - The Accumulator register is set to the value of X minus Y; ACC = X; ACC = ACC - Y
-AND - The Accumulator register is set to the value of X & Y
-OR  - The accumulator register is set to the value of X | Y
-XOR - The accumulator register is set to the value of X ^ Y
+ADD - 0011 - The Accumulator register is set to the value of X plus Y; ACC = X; ACC = ACC + Y
+SUB - 0100 - The Accumulator register is set to the value of X minus Y; ACC = X; ACC = ACC - Y
+AND - 0101 - The Accumulator register is set to the value of X & Y
+OR  - 0110 - The accumulator register is set to the value of X | Y
+XOR - 0111 - The accumulator register is set to the value of X ^ Y
 
-GOA - Sets the PC to the Address operand
-GOE - Acts as a GOA if the accumulator is 0, else it does nothing like a NOP
-GOR - Sets the PC to the X and Y registers together. X is the upper 4 cells of the register and Y is the lower 4 cells; (X << 8) | Y
-RET - Reads 2 from the stack (decrementing the SP) and sets the PC to it. Reads in the format PPC creates, meaning reads the lower 4 cells first, then the upper. On the stack it looks like TTTT BBBB
+GOA - 1000 - Sets the PC to the Address operand
+GOE - 1001 - Acts as a GOA if the accumulator is 0, else it does nothing like a NOP
+GOR - 1010 - Sets the PC to the X and Y registers together. X is the upper 4 cells of the register and Y is the lower 4 cells; (X << 8) | Y
+RET - 1011 - Reads 2 from the stack (decrementing the SP) and sets the PC to it. Reads in the format PPC creates, meaning reads the lower 4 cells first, then the upper. On the stack it looks like TTTT BBBB
 
-PPC - Pushes the PC to the stack with the top 4 cells being 1st, and the bottom 4 cells being 2nd, so the stack ends up like TTTT BBBB (T & B for "top" and "bottom")
-PSH - Pushes a copy of the X register into the stack and increments the stack pointer; X Register wrote into the current stack item, INC SP
-POP - Gets a value from the stack and puts it into the X register; DEC SP, Stack Item written into the X register
+PPC - 1100 - Pushes the PC to the stack with the top 4 cells being 1st, and the bottom 4 cells being 2nd, so the stack ends up like TTTT BBBB (T & B for "top" and "bottom")
+PSH - 1101 - Pushes a copy of the X register into the stack and increments the stack pointer; X Register wrote into the current stack item, INC SP
+POP - 1110 - Gets a value from the stack and puts it into the X register; DEC SP, Stack Item written into the X register
 
-HLT - Halts the program and exits gracefully
+HLT - 1111 - Halts the program and exits gracefully
 
 # Opcode operands
 - The register cell (R) tells us which register the instruction will read or write to. The register cell value means this: 0 = Register X ; 1 = Register Y
@@ -57,7 +57,7 @@ Return:
 The PC Register start marker is also the marker of the address space. Addresses are relative to that (and are positive). So an address of 0 would be the PC marker and an address of 28 is the first cell in the stack, etc
 
 PC              - PC register start marker                                                      --
-0 0 0 0 0 0 0 0 - 8 cells for the PC register, we can have upto 255 instructions                 |
+0 0 0 0 0 0 0 0 - 8 cells for the PC register, we can have up to 255 instructions                |
 SP              - SP register start marker                                                       |
 0 0 0           - 3 cells for the SP register, this means a max of 8 values in the stack         | 28 cells for the registers
 X               - X register start marker                                                        |
