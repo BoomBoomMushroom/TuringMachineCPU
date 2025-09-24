@@ -1049,22 +1049,22 @@ states = [
     State("PCReadNextInstruction_11", "0", "0", "R", "PCReadNextInstruction_110"),
     State("PCReadNextInstruction_11", "1", "1", "R", "PCReadNextInstruction_111"),
     
-    State("PCReadNextInstruction_000", "0", "0", "R", "Instruction_LDV_?"),    # 0000 # IMPLEMENTED ; puts us onto the first operand (the register operand)
-    State("PCReadNextInstruction_000", "1", "1", "R", "Instruction_LDA_?"),    # 0001 # ; puts us onto the first operand (the register operand)
-    State("PCReadNextInstruction_001", "0", "0", "R", "Instruction_STR"),    # 0010 # 
-    State("PCReadNextInstruction_001", "1", "1", "R", "Instruction_ADD"),    # 0011 # 
-    State("PCReadNextInstruction_010", "0", "0", "R", "Instruction_SUB"),    # 0100 # 
-    State("PCReadNextInstruction_010", "1", "1", "R", "Instruction_AND"),    # 0101 # 
+    State("PCReadNextInstruction_000", "0", "0", "R", "Instruction_LDV_?"), # 0000 # IMPLEMENTED ; puts us onto the first operand (the register operand)
+    State("PCReadNextInstruction_000", "1", "1", "R", "Instruction_LDA_?"), # 0001 # IMPLEMENTED ; puts us onto the first operand (the register operand)
+    State("PCReadNextInstruction_001", "0", "0", "R", "Instruction_STR"),   # 0010 # 
+    State("PCReadNextInstruction_001", "1", "1", "R", "Instruction_ADD"),   # 0011 # 
+    State("PCReadNextInstruction_010", "0", "0", "R", "Instruction_SUB"),   # 0100 # 
+    State("PCReadNextInstruction_010", "1", "1", "R", "Instruction_AND"),   # 0101 # 
     State("PCReadNextInstruction_011", "0", "0", "R", "Instruction_OR"),    # 0110 # 
-    State("PCReadNextInstruction_011", "1", "1", "R", "Instruction_XOR"),    # 0111 # 
-    State("PCReadNextInstruction_100", "0", "0", "R", "Instruction_GOA"),    # 1000 # 
-    State("PCReadNextInstruction_100", "1", "1", "R", "Instruction_GOE"),    # 1001 # 
-    State("PCReadNextInstruction_101", "0", "0", "R", "Instruction_GOR"),    # 1010 # 
-    State("PCReadNextInstruction_101", "1", "1", "R", "Instruction_RET"),    # 1011 # 
-    State("PCReadNextInstruction_110", "0", "0", "R", "Instruction_PPC"),    # 1100 # 
-    State("PCReadNextInstruction_110", "1", "1", "R", "Instruction_PSH"),    # 1101 # 
-    State("PCReadNextInstruction_111", "0", "0", "R", "Instruction_POP"),    # 1110 # 
-    State("PCReadNextInstruction_111", "1", "1", "R", "HALT"),               # 1111 # instead of "Instruction_HLT" just use "HALT" b/c it is the same thing            
+    State("PCReadNextInstruction_011", "1", "1", "R", "Instruction_XOR"),   # 0111 # 
+    State("PCReadNextInstruction_100", "0", "0", "R", "Instruction_GOA"),   # 1000 # 
+    State("PCReadNextInstruction_100", "1", "1", "R", "Instruction_GOE"),   # 1001 # 
+    State("PCReadNextInstruction_101", "0", "0", "R", "Instruction_GOR"),   # 1010 # 
+    State("PCReadNextInstruction_101", "1", "1", "R", "Instruction_RET"),   # 1011 # 
+    State("PCReadNextInstruction_110", "0", "0", "R", "Instruction_PPC"),   # 1100 # 
+    State("PCReadNextInstruction_110", "1", "1", "R", "Instruction_PSH"),   # 1101 # 
+    State("PCReadNextInstruction_111", "0", "0", "R", "Instruction_POP"),   # 1110 # 
+    State("PCReadNextInstruction_111", "1", "1", "R", "HALT"),              # 1111 # instead of "Instruction_HLT" just use "HALT" b/c it is the same thing            
     
     # Right will put us onto the first cell of the value to load
     State("Instruction_LDV_?", "0", None, "R", "LDVX_TurnIntoPrimes_4"),
