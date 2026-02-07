@@ -19,8 +19,8 @@ Let's try to utilize 100 cells or less (thats how many cell I plan on having on 
 How many states should/will I use ¯\_(ツ)_/¯
 
 # Instruction set:
-LDV - 0000 - A Register is loaded with the Value operand
-LDA - 0001 - A Register is loaded with the value from the address operand
+LDV - 0000 - A Register, determined from the Register Operand, is loaded with the Value operand
+LDA - 0001 - A Register, determined from the Register Operand, is loaded with the value from the address operand
 STR - 0010 - Writes the value of a register to the address at the Address operand
 
 ADD - 0011 - The Accumulator register is set to the value of X plus Y; ACC = X; ACC = ACC + Y
@@ -40,8 +40,13 @@ POP - 1110 - Gets a value from the stack and puts it into the X register; DEC SP
 
 HLT - 1111 - Halts the program and exits gracefully
 
+* LDV & LDA only copies from right to left, so you cannot move the X Register into the Y Register but you can copy from the Y Register into the X Register
+
+
 # Opcode operands
-- The register cell (R) tells us which register the instruction will read or write to. The register cell value means this: 0 = Register X ; 1 = Register Y
+- The Register Operand (R) tells us which register the instruction will read or write to. The register cell value means this:
+    0 = Register X
+    1 = Register Y
 - The Value operand (V) is 4 cells and come after the opcode, and after the register cell if present.
 - The Address operand (A) is 8 cells and come after the opcode, and after the register cell if present.
 
@@ -54,7 +59,7 @@ Return:
 
 
 # Memory layout
-The PC Register start marker is also the marker of the address space. Addresses are relative to that (and are positive). So an address of 0 would be the PC marker and an address of 28 is the first cell in the stack, etc
+The PC Register start marker is also the marker of the address space. Addresses are relative to that (and are positive). So an address of 0 would be the PC marker and an address of 28 is the first cell in the stack, an address of 60 (0b00111100) is one cell after the end of the stack, etc
 
 PC              - PC register start marker                                                      --
 0 0 0 0 0 0 0 0 - 8 cells for the PC register, we can have up to 255 instructions                |
@@ -89,3 +94,7 @@ LDA 0 00010011  ; Load X register w/ the value from the Y register (0010011 = 19
 LDA 1 00011000  ; Load Y register w/ the value from the Accumulator (0011000 = 24, which is the accumulator address)
 GOA 01001001    ; Go to address 73, which is the ADD, so we can loop forever
 """
+
+Compiled Fibonacci Sequence from the code above:
+0000 0 0000 ; 0000 1 0001 ; 0011 ; 0001 0 00010011 ; 0001 1 00011000 ; 1000 01001001
+-> 000000000000010001001100010000100110001100011000100001001001

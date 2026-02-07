@@ -1064,7 +1064,7 @@ states = [
     State("PCReadNextInstruction_110", "0", "0", "R", "Instruction_PPC"),   # 1100 # 
     State("PCReadNextInstruction_110", "1", "1", "R", "Instruction_PSH"),   # 1101 # 
     State("PCReadNextInstruction_111", "0", "0", "R", "Instruction_POP"),   # 1110 # 
-    State("PCReadNextInstruction_111", "1", "1", "R", "HALT"),              # 1111 # instead of "Instruction_HLT" just use "HALT" b/c it is the same thing            
+    State("PCReadNextInstruction_111", "1", "1", "R", "HALT"),              # 1111 # IMPLEMENTED ; instead of "Instruction_HLT" just use "HALT" b/c it is the same thing            
     
     # Right will put us onto the first cell of the value to load
     State("Instruction_LDV_?", "0", None, "R", "LDVX_TurnIntoPrimes_4"),
