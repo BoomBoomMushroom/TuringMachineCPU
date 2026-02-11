@@ -1,0 +1,7 @@
+[
+	{"id":"ADD_FindPC","read":null,"write":null,"move":"L","nextStateId":"ADD_FindPC"},
+	{"id":"ADD_FindPC","read":"PC","write":"PC","move":"R","nextStateId":"ADD_GotoXReg"},
+	{"id":"ADD_GotoXReg","read":null,"write":null,"move":"R","nextStateId":"ADD_GotoXReg"},
+	{"id":"ADD_GotoXReg","read":"X","write":"X","move":"R","nextStateId":"ADD_XRegVal"},
+	{"id":"ADD_XRegVal","read":null,"write":null,"move":"","nextStateId":"ADD_GotoXReg"}
+]
