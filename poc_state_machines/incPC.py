@@ -5,7 +5,7 @@ from CustomClasses import State, statesArrayToJson
 
 BLANK_CHARACTER = "_"
 
-IncPCByN = 13
+IncPCByN = 4
 stateNamePrefix = f"IncPCBy_{IncPCByN}"
 
 states = [

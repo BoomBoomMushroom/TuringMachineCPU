@@ -4372,9 +4372,51 @@ states = [
             State("LDAY_FixYRegPrimes", None, None, "L", "LDAY_FixYRegPrimes"),
             State("LDAY_FixYRegPrimes", "Y", None, "R", "IncPCBy_13"),
     
-    
+    # [?] States for the ADD instruction ; I need to fix ADD
     
     # All the Inc PC states
+    State("IncPCBy_4", "PC", None, "R", "IncPCBy_4_GotoPCEndR7"),
+    State("IncPCBy_4", None, None, "L", "IncPCBy_4"),
+    State("IncPCBy_4_GotoPCEndR7", None, None, "R", "IncPCBy_4_GotoPCEndR6"),
+    State("IncPCBy_4_GotoPCEndR6", None, None, "R", "IncPCBy_4_GotoPCEndR5"),
+    State("IncPCBy_4_GotoPCEndR5", None, None, "R", "IncPCBy_4_GotoPCEndR4"),
+    State("IncPCBy_4_GotoPCEndR4", None, None, "R", "IncPCBy_4_GotoPCEndR3"),
+    State("IncPCBy_4_GotoPCEndR3", None, None, "R", "IncPCBy_4_GotoPCEndR2"),
+    State("IncPCBy_4_GotoPCEndR2", None, None, "R", "IncPCBy_4_GotoPCEndR1"),
+    State("IncPCBy_4_GotoPCEndR1", None, None, "R", "IncPCBy_4_AddBit0Carry0"),
+    State("IncPCBy_4_AddBit0Carry0", "0", "0", "L", "IncPCBy_4_AddBit1Carry0"),
+    State("IncPCBy_4_AddBit0Carry0", "1", "1", "L", "IncPCBy_4_AddBit1Carry0"),
+    State("IncPCBy_4_AddBit0Carry1", "0", "1", "L", "IncPCBy_4_AddBit1Carry0"),
+    State("IncPCBy_4_AddBit0Carry1", "1", "0", "L", "IncPCBy_4_AddBit1Carry1"),
+    State("IncPCBy_4_AddBit1Carry0", "0", "0", "L", "IncPCBy_4_AddBit2Carry0"),
+    State("IncPCBy_4_AddBit1Carry0", "1", "1", "L", "IncPCBy_4_AddBit2Carry0"),
+    State("IncPCBy_4_AddBit1Carry1", "0", "1", "L", "IncPCBy_4_AddBit2Carry0"),
+    State("IncPCBy_4_AddBit1Carry1", "1", "0", "L", "IncPCBy_4_AddBit2Carry1"),
+    State("IncPCBy_4_AddBit2Carry0", "0", "1", "L", "IncPCBy_4_AddBit3Carry0"),
+    State("IncPCBy_4_AddBit2Carry0", "1", "0", "L", "IncPCBy_4_AddBit3Carry1"),
+    State("IncPCBy_4_AddBit2Carry1", "0", "0", "L", "IncPCBy_4_AddBit3Carry1"),
+    State("IncPCBy_4_AddBit2Carry1", "1", "1", "L", "IncPCBy_4_AddBit3Carry1"),
+    State("IncPCBy_4_AddBit3Carry0", "0", "0", "L", "IncPCBy_4_AddBit4Carry0"),
+    State("IncPCBy_4_AddBit3Carry0", "1", "1", "L", "IncPCBy_4_AddBit4Carry0"),
+    State("IncPCBy_4_AddBit3Carry1", "0", "1", "L", "IncPCBy_4_AddBit4Carry0"),
+    State("IncPCBy_4_AddBit3Carry1", "1", "0", "L", "IncPCBy_4_AddBit4Carry1"),
+    State("IncPCBy_4_AddBit4Carry0", "0", "0", "L", "IncPCBy_4_AddBit5Carry0"),
+    State("IncPCBy_4_AddBit4Carry0", "1", "1", "L", "IncPCBy_4_AddBit5Carry0"),
+    State("IncPCBy_4_AddBit4Carry1", "0", "1", "L", "IncPCBy_4_AddBit5Carry0"),
+    State("IncPCBy_4_AddBit4Carry1", "1", "0", "L", "IncPCBy_4_AddBit5Carry1"),
+    State("IncPCBy_4_AddBit5Carry0", "0", "0", "L", "IncPCBy_4_AddBit6Carry0"),
+    State("IncPCBy_4_AddBit5Carry0", "1", "1", "L", "IncPCBy_4_AddBit6Carry0"),
+    State("IncPCBy_4_AddBit5Carry1", "0", "1", "L", "IncPCBy_4_AddBit6Carry0"),
+    State("IncPCBy_4_AddBit5Carry1", "1", "0", "L", "IncPCBy_4_AddBit6Carry1"),
+    State("IncPCBy_4_AddBit6Carry0", "0", "0", "L", "IncPCBy_4_AddBit7Carry0"),
+    State("IncPCBy_4_AddBit6Carry0", "1", "1", "L", "IncPCBy_4_AddBit7Carry0"),
+    State("IncPCBy_4_AddBit6Carry1", "0", "1", "L", "IncPCBy_4_AddBit7Carry0"),
+    State("IncPCBy_4_AddBit6Carry1", "1", "0", "L", "IncPCBy_4_AddBit7Carry1"),
+    State("IncPCBy_4_AddBit7Carry0", "0", "0", "L", "PCNextInstruction"),
+    State("IncPCBy_4_AddBit7Carry0", "1", "1", "L", "PCNextInstruction"),
+    State("IncPCBy_4_AddBit7Carry1", "0", "1", "L", "PCNextInstruction"),
+    State("IncPCBy_4_AddBit7Carry1", "1", "0", "L", "IncPCBy_4_AddBit8Carry1"),
+    
     State("IncPCBy_9", "PC", None, "R", "IncPCBy_9_GotoPCEndR7"),
     State("IncPCBy_9", None, None, "L", "IncPCBy_9"),
     State("IncPCBy_9_GotoPCEndR7", None, None, "R", "IncPCBy_9_GotoPCEndR6"),
@@ -4485,8 +4527,19 @@ for i in range(0, 2**4):
 """
 
 #jsonStates = statesArrayToJson(states)
+
+"""
 with open("poc_state_machines/cpu.turing", "w") as f:
     f.writelines(["[\n"])
     f.writelines(["\t"+s.__str__(isJson=True)+",\n" for s in states])
     f.writelines(["]"])
+"""
 
+with open("./poc_state_machines/cpu.turing", "w") as f:
+    lines = ["[\n"]
+    lines.extend(["\t"+s.__str__(isJson=True)+",\n" for s in states])
+    lines[-1] = lines[-1][:-2] + "\n"
+    lines.append("]")
+
+    f.writelines(lines)
+    print(f"Wrote {len(lines)} lines!")

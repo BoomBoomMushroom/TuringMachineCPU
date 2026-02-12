@@ -19,6 +19,15 @@ class State:
         
         if isJson: return jsonFormat
         else: return classFormat
+    def __eq__(self, value):
+        if isinstance(value, State):
+            return (self.id == value.id and
+                    self.read == value.read and
+                    self.write == value.write and
+                    self.moveDirection == value.moveDirection and
+                    self.nextStateId == value.nextStateId)
+        
+        return False
 
 def statesArrayToJson(states: list[State], isJson=True):
     print(f"Converting {len(states)} States to json")
