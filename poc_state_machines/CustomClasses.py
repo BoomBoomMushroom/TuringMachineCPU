@@ -29,10 +29,11 @@ class State:
         
         return False
 
-def statesArrayToJson(states: list[State], isJson=True):
+def statesArrayToJson(states: list[State], isJson=True, addNewLines=False):
     print(f"Converting {len(states)} States to json")
     out = "["
     for i,state in enumerate(states):
+        if addNewLines: out += "\n"
         out += state.__str__(isJson=isJson)
         if i != len(states)-1: out += ","
     out += "]"

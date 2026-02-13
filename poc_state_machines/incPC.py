@@ -5,7 +5,7 @@ from CustomClasses import State, statesArrayToJson
 
 BLANK_CHARACTER = "_"
 
-IncPCByN = 4
+IncPCByN = 12
 stateNamePrefix = f"IncPCBy_{IncPCByN}"
 
 states = [
@@ -51,4 +51,4 @@ def generateAddStates(N):
 states.extend(generateAddStates(IncPCByN))
 
 #print(statesArrayToJson(states, isJson=True))
-print(statesArrayToJson(states, isJson=False))
+print(statesArrayToJson(states, isJson=False, addNewLines=True))
