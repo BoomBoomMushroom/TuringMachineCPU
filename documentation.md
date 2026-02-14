@@ -98,3 +98,7 @@ GOA 01001001    ; Go to address 73, which is the ADD, so we can loop forever
 Compiled Fibonacci Sequence from the code above:
 0000 0 0000 ; 0000 1 0001 ; 0011 ; 0001 0 00010011 ; 0001 1 00011000 ; 1000 01001001
 -> 000000000000010001001100010000100110001100011000100001001001
+
+# 01001110
+
+# TODO: Make GOA not increment the PC after the instruction is done!! We don't want to have to take our target address - 12 (the amount the pc increases by) and have that written instead!
