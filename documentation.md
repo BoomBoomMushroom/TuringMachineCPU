@@ -92,13 +92,9 @@ LDV 1 0001      ; load Y with 1
 ADD             ; Accumulator now has X + Y
 LDA 0 00010011  ; Load X register w/ the value from the Y register (0010011 = 19, which is the Y Register address)
 LDA 1 00011000  ; Load Y register w/ the value from the Accumulator (0011000 = 24, which is the accumulator address)
-GOA 01001001    ; Go to address 73, which is the ADD, so we can loop forever
+GOA 01001110    ; Go to address 78, which is the ADD, so we can loop forever
 """
 
 Compiled Fibonacci Sequence from the code above:
-0000 0 0000 ; 0000 1 0001 ; 0011 ; 0001 0 00010011 ; 0001 1 00011000 ; 1000 01001001
--> 000000000000010001001100010000100110001100011000100001001001
-
-# 01001110
-
-# TODO: Make GOA not increment the PC after the instruction is done!! We don't want to have to take our target address - 12 (the amount the pc increases by) and have that written instead!
+0000 0 0000 ; 0000 1 0001 ; 0011 ; 0001 0 00010011 ; 0001 1 00011000 ; 1000 01001110
+-> 000000000000010001001100010000100110001100011000100001001110
